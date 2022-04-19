@@ -26,7 +26,7 @@ class OrderLocation {
     return {
       'latitude': latitude,
       'longitude': longitude,
-      'dateTime': dateTime.millisecondsSinceEpoch,
+      'dateTime': dateTime.toIso8601String(),
     };
   }
 
@@ -34,7 +34,7 @@ class OrderLocation {
     return OrderLocation(
       latitude: map['latitude']?.toDouble() ?? 0.0,
       longitude: map['longitude']?.toDouble() ?? 0.0,
-      dateTime: DateTime.fromMillisecondsSinceEpoch(map['dateTime']),
+      dateTime: DateTime.parse(map['dateTime']),
     );
   }
 
