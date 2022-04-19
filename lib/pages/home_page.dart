@@ -10,11 +10,17 @@ class HomePage extends GetView<AssistanceController> {
 
   Widget renderAssists(List<Assistance> list) {
     return ListView.builder(
-        shrinkWrap: true,
-        itemCount: list.length,
-        itemBuilder: ((context, index) => ListTile(
-              title: Text(list[index].name),
-            )));
+      shrinkWrap: true,
+      itemCount: list.length,
+      itemBuilder: ((context, index) => ListTile(
+            title: Text(list[index].name),
+            selectedColor: Colors.blueAccent,
+            selected: controller.isSelected(index),
+            onTap: () {
+              controller.selectAssist(index);
+            },
+          )),
+    );
   }
 
   @override
