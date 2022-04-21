@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-
 import 'package:abctechapp/model/order_location.dart';
 
 class Order {
