@@ -41,7 +41,7 @@ class AssistanceController extends GetxController
   }
 
   void selectAssist(int index) {
-    if (isSelected(index)) {
+    if (!isSelected(index)) {
       selectedAssists.add(allAssists[index]);
     } else {
       selectedAssists.remove(allAssists[index]);

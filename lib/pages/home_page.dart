@@ -1,8 +1,7 @@
 import 'package:abctechapp/controller/assistance_controller.dart';
+import 'package:abctechapp/model/assistance.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../model/assistance.dart';
 
 class HomePage extends GetView<AssistanceController> {
   const HomePage({Key? key}) : super(key: key);

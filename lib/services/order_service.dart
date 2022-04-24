@@ -15,10 +15,10 @@ class OrderService extends GetxService implements OrderServiceInterface {
   @override
   Future<OrderCreated> createOrder(Order order) async {
     Response response = await _orderProvider.postOrder(order);
-    if (response.hasError) {
-      return Future.error(ErrorDescription('Erro na API'));
-    }
     try {
+      if (response.hasError) {
+        return Future.error(ErrorDescription('Erro na API'));
+      }
       return Future.sync(
         () => OrderCreated(success: true, message: ""),
       );

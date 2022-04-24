@@ -16,6 +16,7 @@ class AssistanceService extends GetxService
   Future<List<Assistance>> getAssists() async {
     Response response = await _assistanceProvider.getAssists();
     if (response.hasError) {
+      response.printError();
       return Future.error(ErrorDescription("Erro na conexão"));
     }
     try {

@@ -32,8 +32,8 @@ class OrderLocation {
 
   factory OrderLocation.fromMap(Map<String, dynamic> map) {
     return OrderLocation(
-      latitude: map['latitude']?.toDouble() ?? 0.0,
-      longitude: map['longitude']?.toDouble() ?? 0.0,
+      latitude: map['latitude'] as double,
+      longitude: map['longitude'] as double,
       dateTime: DateTime.parse(map['dateTime']),
     );
   }

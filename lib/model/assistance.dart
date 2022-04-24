@@ -32,16 +32,16 @@ class Assistance {
 
   factory Assistance.fromMap(Map<String, dynamic> map) {
     return Assistance(
-      id: map['id']?.toInt() ?? 0,
-      name: map['name'] ?? '',
-      description: map['description'] ?? '',
+      id: map['id'] as int,
+      name: map['name'] as String,
+      description: map['description'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
   factory Assistance.fromJson(String source) =>
-      Assistance.fromMap(json.decode(source));
+      Assistance.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() =>

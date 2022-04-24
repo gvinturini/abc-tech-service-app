@@ -40,15 +40,18 @@ class OrderPage extends GetView<OrderController> {
                 ),
               ],
             ),
-            TextFormField(
-              controller: controller.operatorIdController,
-              enabled: controller.screenState.value == OrderState.creating,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              keyboardType: TextInputType.number,
-              decoration:
-                  const InputDecoration(labelText: "Código do prestador"),
-              textAlign: TextAlign.center,
-            ),
+            Obx(() {
+              var enabled = controller.screenState.value == OrderState.creating;
+              return TextFormField(
+                controller: controller.operatorIdController,
+                enabled: enabled,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                keyboardType: TextInputType.number,
+                decoration:
+                    const InputDecoration(labelText: "Código do prestador"),
+                textAlign: TextAlign.center,
+              );
+            }),
             Row(
               children: [
                 const Expanded(

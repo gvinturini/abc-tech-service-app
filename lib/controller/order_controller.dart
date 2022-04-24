@@ -52,6 +52,7 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
   finishStartOrder() {
     switch (screenState.value) {
       case OrderState.creating:
+        change(null, status: RxStatus.loading());
         _getLocation().then((value) {
           _order = Order(
               operatorId: int.parse(operatorIdController.text),
