@@ -41,7 +41,7 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
     return OrderLocation(
       latitude: position.latitude,
       longitude: position.longitude,
-      dateTime: DateTime.now(),
+      datetime: DateTime.now(),
     );
   }
 
@@ -57,8 +57,8 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
           _order = Order(
               operatorId: int.parse(operatorIdController.text),
               services: getServicesIds(),
-              startLocation: orderLocationFromPosition(value),
-              endLocation: null);
+              start: orderLocationFromPosition(value),
+              end: null);
           screenState.value = OrderState.started;
           change(null, status: RxStatus.success());
         });
@@ -67,7 +67,7 @@ class OrderController extends GetxController with StateMixin<OrderCreated> {
       case OrderState.started:
         change(null, status: RxStatus.loading());
         _getLocation().then((value) {
-          _order.endLocation = orderLocationFromPosition(value);
+          _order.end = orderLocationFromPosition(value);
           _createOrder();
         });
         break;

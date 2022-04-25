@@ -3,22 +3,22 @@ import 'dart:convert';
 class OrderLocation {
   double latitude;
   double longitude;
-  DateTime dateTime;
+  DateTime datetime;
   OrderLocation({
     required this.latitude,
     required this.longitude,
-    required this.dateTime,
+    required this.datetime,
   });
 
   OrderLocation copyWith({
     double? latitude,
     double? longitude,
-    DateTime? dateTime,
+    DateTime? datetime,
   }) {
     return OrderLocation(
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
-      dateTime: dateTime ?? this.dateTime,
+      datetime: datetime ?? this.datetime,
     );
   }
 
@@ -26,7 +26,7 @@ class OrderLocation {
     return {
       'latitude': latitude,
       'longitude': longitude,
-      'dateTime': dateTime.toIso8601String(),
+      'datetime': datetime.toIso8601String(),
     };
   }
 
@@ -34,7 +34,7 @@ class OrderLocation {
     return OrderLocation(
       latitude: map['latitude'] as double,
       longitude: map['longitude'] as double,
-      dateTime: DateTime.parse(map['dateTime']),
+      datetime: DateTime.parse(map['datetime']),
     );
   }
 
@@ -45,7 +45,7 @@ class OrderLocation {
 
   @override
   String toString() =>
-      'OrderLocation(latitude: $latitude, longitude: $longitude, dateTime: $dateTime)';
+      'OrderLocation(latitude: $latitude, longitude: $longitude, datetime: $datetime)';
 
   @override
   bool operator ==(Object other) {
@@ -54,10 +54,10 @@ class OrderLocation {
     return other is OrderLocation &&
         other.latitude == latitude &&
         other.longitude == longitude &&
-        other.dateTime == dateTime;
+        other.datetime == datetime;
   }
 
   @override
   int get hashCode =>
-      latitude.hashCode ^ longitude.hashCode ^ dateTime.hashCode;
+      latitude.hashCode ^ longitude.hashCode ^ datetime.hashCode;
 }
